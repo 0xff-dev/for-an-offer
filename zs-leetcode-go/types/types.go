@@ -27,3 +27,17 @@ func (tree *TreeNode) Floor() {
 		queue = tmpQueue
 	}
 }
+
+type ListNode struct {
+	Val int
+	Next *ListNode
+}
+
+func (ln *ListNode) Display() {
+	p := ln
+	for p != nil {
+		fmt.Print(p.Val, " ")
+		p = p.Next
+	}
+	fmt.Println()
+}
