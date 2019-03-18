@@ -1,6 +1,5 @@
 package LongestValidParentheses
 
-
 // 用栈来做数据匹配？按照start，end来定位？
 func longestValidParentheses(s string) int {
 	strLength := len(s)
@@ -10,9 +9,9 @@ func longestValidParentheses(s string) int {
 		// 遇到( 匹配到最后， 拿一个长度，
 		if s[index] == '(' {
 			walk := index + 1
-			cnt := 0  // 计算括号的对数
-			count := 1 // 遇到( +1, )-1
-			mid := 0 // 记录内在(括号的数量
+			cnt := 0      // 计算括号的对数
+			count := 1    // 遇到( +1, )-1
+			mid := 0      // 记录内在(括号的数量
 			innerMax := 0 // 用来记录栈内不存数据的最大值
 			for walk < strLength {
 				if s[walk] == ')' {
@@ -34,7 +33,7 @@ func longestValidParentheses(s string) int {
 				}
 				walk += 1
 			}
-			if innerMax != 0{
+			if innerMax != 0 {
 				index = index + innerMax
 			} else {
 				index += 1
@@ -46,5 +45,5 @@ func longestValidParentheses(s string) int {
 			index += 1
 		}
 	}
-	return  maxLength
+	return maxLength
 }
