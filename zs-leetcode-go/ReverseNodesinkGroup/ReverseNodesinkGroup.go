@@ -41,9 +41,6 @@ func reverseKGroup(head *types.ListNode, k int) *types.ListNode {
 			start = end
 		}
 	}
-	if index == k {
-		reverse(start, end)
-	}
 	return pHead
 }
 
