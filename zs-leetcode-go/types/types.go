@@ -41,3 +41,17 @@ func (ln *ListNode) Display() {
 	}
 	fmt.Println()
 }
+
+type ComplexListNode struct {
+	Val int
+	Next *ComplexListNode
+	Others *ComplexListNode
+}
+
+func (cln *ComplexListNode) Display() {
+	walk := cln
+	for walk != nil {
+		fmt.Printf("val: %d others: %v", walk.Val, walk.Others)
+		walk = walk.Next
+	}
+}
