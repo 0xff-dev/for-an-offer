@@ -3,8 +3,8 @@ package types
 import "fmt"
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -29,7 +29,7 @@ func (tree *TreeNode) Floor() {
 }
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -43,8 +43,8 @@ func (ln *ListNode) Display() {
 }
 
 type ComplexListNode struct {
-	Val int
-	Next *ComplexListNode
+	Val    int
+	Next   *ComplexListNode
 	Others *ComplexListNode
 }
 
