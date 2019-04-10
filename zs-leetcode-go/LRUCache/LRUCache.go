@@ -7,7 +7,7 @@ type LRUCache struct {
 	Length int
 	Head   *Node
 	Tail   *Node
-	Nodess []*Node
+	Nodess map[int]*Node
 }
 
 type Node struct {
@@ -16,18 +16,16 @@ type Node struct {
 	Right      *Node
 }
 
-//  数字别太过分啊。。。。太大了受不鸟, 马上转map
 func Constructor(capacity int) LRUCache {
-	return LRUCache{Size: capacity, Length: 0, Head: nil, Tail: nil, Nodess: make([]*Node, 10001)}
+	return LRUCache{Size: capacity, Length: 0, Head: nil, Tail: nil, Nodess: make(map[int]*Node)}
 }
 
-// 遍历肯定要O(n)...
 func (this *LRUCache) Get(key int) int {
 	if this.Head == nil {
 		this.Nodess[key] = nil
 		return -1
 	}
-	if res := this.Nodess[key]; res != nil {
+	if res, _ := this.Nodess[key]; res != nil {
 		if res.Left == nil {
 			return res.Value
 		}
@@ -38,8 +36,6 @@ func (this *LRUCache) Get(key int) int {
 			this.Tail = this.Tail.Left
 			this.Tail.Right = nil
 		}
-		res.Left = nil
-		res.Right = nil
 		res.Right = this.Head
 		this.Head.Left = res
 		this.Head = res
@@ -51,7 +47,7 @@ func (this *LRUCache) Get(key int) int {
 
 func (this *LRUCache) Put(key int, value int) {
 	if res := this.Get(key); res != -1{
-		// key是存在的
+		// key是存在的, 更新key
 		this.Nodess[key].Value = value
 		return
 	}
@@ -65,16 +61,14 @@ func (this *LRUCache) Put(key int, value int) {
 			this.Head.Left = node
 			this.Head = node
 		}
-		this.Nodess[key] = node
 		this.Length++
 	} else {
 		node.Right = this.Head
 		this.Head.Left = node
 		this.Head = node
-		this.Head.Left = nil
-		this.Nodess[this.Tail.Key] = nil
-		this.Nodess[key] = node
+		delete(this.Nodess, this.Tail.Key)
 		this.Tail = this.Tail.Left
 		this.Tail.Right = nil
 	}
+	this.Nodess[key] = node
 }
