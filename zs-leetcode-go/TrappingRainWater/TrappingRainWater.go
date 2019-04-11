@@ -13,6 +13,9 @@ func findIndex(nums []int) int {
 }
 
 func trap(height []int) int {
+	if len(height) ==0 {
+		return 0
+	}
 	maxIndex := findIndex(height)
 	now := height[0]
 	start := 1
