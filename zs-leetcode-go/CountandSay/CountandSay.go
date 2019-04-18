@@ -1,6 +1,7 @@
 package CountandSay
 
 import "fmt"
+import "bytes"
 
 func countAndSay(n int) string {
 	constDatas := []string{"", "1", "11", "21", "1211", "111221"}
@@ -9,7 +10,7 @@ func countAndSay(n int) string {
 	}
 	nowString := constDatas[5]
 	for i := 6; i <= n; i++ {
-		tmpString := ""
+		buf := bytes.NewBufferString("")
 		start, end := 0, 0
 		cnt := 0
 		data := nowString
@@ -18,11 +19,11 @@ func countAndSay(n int) string {
 				end ++
 				cnt ++
 			}
-			tmpString += fmt.Sprintf("%d%c", cnt, data[start])
+			buf.WriteString(fmt.Sprintf("%d%c", cnt, data[start]))
 			start = end
 			cnt = 0
 		}
-		nowString = tmpString
+		nowString = buf.String()
 	}
 	return nowString
 }
