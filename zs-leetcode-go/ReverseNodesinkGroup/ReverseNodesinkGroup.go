@@ -26,7 +26,7 @@ func reverseKGroup(head *types.ListNode, k int) *types.ListNode {
 	var pHead *types.ListNode
 	var preNode *types.ListNode
 	for end != nil {
-		index ++
+		index++
 		end = end.Next
 		if index == k {
 			tmpHead, tmpEnd := reverse(start, end)
@@ -44,7 +44,7 @@ func reverseKGroup(head *types.ListNode, k int) *types.ListNode {
 	return pHead
 }
 
-func reverse(head *types.ListNode, endNode *types.ListNode) (*types.ListNode, *types.ListNode){
+func reverse(head *types.ListNode, endNode *types.ListNode) (*types.ListNode, *types.ListNode) {
 	p, q := head, head.Next
 	p.Next = endNode
 	for q != endNode {

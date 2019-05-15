@@ -1,6 +1,5 @@
 package HouseRobber
 
-
 func rob(nums []int) int {
 	length := len(nums)
 	if length == 0 {

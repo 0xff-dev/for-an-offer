@@ -14,10 +14,10 @@ func TestFindSubstring(t *testing.T) {
 	fmt.Println(findSubstring(s, []string{"word", "good", "best", "word"}))
 
 	s = "wordgoodgoodgoodbestword"
-	aim = []string{"word","good","best","good"}
+	aim = []string{"word", "good", "best", "good"}
 	fmt.Println(findSubstring(s, aim))
 
 	s = "lingmindraboofooowingdingbarrwingmonkeypoundcake"
-	aim = []string{"fooo","barr","wing","ding","wing"}
+	aim = []string{"fooo", "barr", "wing", "ding", "wing"}
 	fmt.Println(findSubstring(s, aim))
 }

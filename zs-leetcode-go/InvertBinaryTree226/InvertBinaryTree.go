@@ -4,7 +4,7 @@ import "for-an-offer/zs-leetcode-go/types"
 
 func InvertBinaryTree(root *types.TreeNode) *types.TreeNode {
 	if root == nil {
-		return  nil
+		return nil
 	}
 	var innerFunc func(root *types.TreeNode)
 	innerFunc = func(root *types.TreeNode) {

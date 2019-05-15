@@ -21,8 +21,8 @@ func maintain(nodes []*types.ListNode, index, heapSize int) {
 }
 
 func buildHeap(nodes []*types.ListNode) {
-	length := len(nodes)-1
-	for i := len(nodes)/2; i >= 0; i-- {
+	length := len(nodes) - 1
+	for i := len(nodes) / 2; i >= 0; i-- {
 		maintain(nodes, i, length)
 	}
 }
@@ -42,7 +42,7 @@ func mergeKLists(lists []*types.ListNode) *types.ListNode {
 		nodesArr[0].Next = p.Next
 		p.Next = nodesArr[0]
 		p = p.Next
-		if  nextNode != nil {
+		if nextNode != nil {
 			nodesArr[0] = nextNode
 			buildHeap(nodesArr)
 		} else {

@@ -6,12 +6,12 @@ func reverse(nums []int) {
 	start, end := 0, len(nums)-1
 	for start < end {
 		nums[start], nums[end] = nums[end], nums[start]
-		start ++
-		end --
+		start++
+		end--
 	}
 }
 
-func nextPermutation(nums []int)  {
+func nextPermutation(nums []int) {
 	if len(nums) == 1 {
 		return
 	}
@@ -19,10 +19,10 @@ func nextPermutation(nums []int)  {
 		nums[0], nums[1] = nums[1], nums[0]
 		return
 	}
-	lastIndex := len(nums)-1
+	lastIndex := len(nums) - 1
 	for lastIndex > 0 {
-		if nums[lastIndex] <= nums[lastIndex-1]{
-			lastIndex --
+		if nums[lastIndex] <= nums[lastIndex-1] {
+			lastIndex--
 		} else {
 			break
 		}

@@ -46,7 +46,7 @@ func (this *LRUCache) Get(key int) int {
 }
 
 func (this *LRUCache) Put(key int, value int) {
-	if res := this.Get(key); res != -1{
+	if res := this.Get(key); res != -1 {
 		// key是存在的, 更新key
 		this.Nodess[key].Value = value
 		return

@@ -6,10 +6,10 @@ import (
 	"testing"
 )
 
-func  TestMinimumDepthofBinaryTree(t *testing.T) {
+func TestMinimumDepthofBinaryTree(t *testing.T) {
 	root := &types.TreeNode{
-		Val: 1,
-		Left: &types.TreeNode{Val: 2, Left: nil, Right: nil},
+		Val:   1,
+		Left:  &types.TreeNode{Val: 2, Left: nil, Right: nil},
 		Right: nil,
 	}
 	fmt.Println(MinimumDepthofBinaryTree(root))

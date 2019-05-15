@@ -10,9 +10,10 @@
 //    Jump 1 step from index 0 to 1, then 3 steps to the last index.
 package JumpGameII
 
-
 func max(num1, num2 int) int {
-	if num1 > num2 { return num1}
+	if num1 > num2 {
+		return num1
+	}
 	return num2
 }
 
@@ -22,7 +23,7 @@ func jump(nums []int) int {
 	}
 	index, cnt := 1, 1
 	now, next := nums[0], 0
-	for ;index <= now && index < len(nums)-1; index++ {
+	for ; index <= now && index < len(nums)-1; index++ {
 		next = max(next, nums[index]+index)
 		if index == now {
 			cnt += 1

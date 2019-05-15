@@ -5,7 +5,7 @@ import (
 	"for-an-offer/zs-leetcode-go/types"
 )
 
-func ConvertBinaryToDoubleList(tree *types.TreeNode){
+func ConvertBinaryToDoubleList(tree *types.TreeNode) {
 	var lastnode *types.TreeNode
 	auxFunc(tree, &lastnode)
 	node := &lastnode

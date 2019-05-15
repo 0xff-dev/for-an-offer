@@ -17,7 +17,7 @@ func compare(nums []int) bool {
 
 func printArray(nums []int) {
 	firstZero := true
-	for _, i := range  nums {
+	for _, i := range nums {
 		if i == 0 && firstZero {
 			continue
 		} else {
@@ -30,13 +30,13 @@ func printArray(nums []int) {
 
 // 数组加法
 func addArray(nums []int) {
-	index := len(nums)-1
+	index := len(nums) - 1
 	cf := 0
-	tmp := nums[index]+1
+	tmp := nums[index] + 1
 	if tmp >= 10 {
 		nums[index] = tmp % 10
 		cf = tmp / 10
-		for i := index-1; i >= 0; i-- {
+		for i := index - 1; i >= 0; i-- {
 			tmp = nums[i] + cf
 			if tmp >= 10 {
 				nums[i] = tmp % 10
@@ -59,7 +59,6 @@ func OneToNBit(integer int) {
 	}
 	fmt.Println()
 }
-
 
 func SortAllInteger(integer int) {
 	res := make([]int, integer)

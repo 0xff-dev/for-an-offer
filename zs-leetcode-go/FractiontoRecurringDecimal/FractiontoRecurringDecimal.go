@@ -8,16 +8,16 @@ import (
 func fractionToDecimal(numerator int, denominator int) string {
 	const maxn = 65536
 	var flag bool
-	if numerator * denominator < 0 {
+	if numerator*denominator < 0 {
 		flag = false
 	} else {
 		flag = true
 	}
-	if numerator % denominator == 0 {
+	if numerator%denominator == 0 {
 		return fmt.Sprintf("%d", numerator/denominator)
 	}
 	if numerator < 0 {
-		numerator = - numerator
+		numerator = -numerator
 	}
 	if denominator < 0 {
 		denominator = -denominator
@@ -49,7 +49,7 @@ func fractionToDecimal(numerator int, denominator int) string {
 						buf.WriteString(fmt.Sprintf("%d", quotient[inner]))
 					}
 					buf.WriteString("(")
-					for inner := index+1; inner <= i+1; inner++ {
+					for inner := index + 1; inner <= i+1; inner++ {
 						buf.WriteString(fmt.Sprintf("%d", quotient[inner]))
 					}
 					buf.WriteString(")")

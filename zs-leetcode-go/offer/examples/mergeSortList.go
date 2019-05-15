@@ -2,7 +2,7 @@ package examples
 
 import "for-an-offer/zs-leetcode-go/types"
 
-func MergeSortList(list1, list2 *types.ListNode) *types.ListNode{
+func MergeSortList(list1, list2 *types.ListNode) *types.ListNode {
 	if list1 == nil {
 		return list2
 	}

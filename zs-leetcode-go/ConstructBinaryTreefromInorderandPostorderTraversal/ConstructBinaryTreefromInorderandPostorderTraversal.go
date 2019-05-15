@@ -17,7 +17,8 @@ func buildTree(inorder []int, postorder []int) *types.TreeNode {
 		return nil
 	}
 	index := 0
-	for ; inorder[index] != postorder[postorderLen-1]; index++{}
+	for ; inorder[index] != postorder[postorderLen-1]; index++ {
+	}
 	// 能找到
 	if index > 0 {
 		root.Left = buildTree(inorder[:index], postorder[:index])

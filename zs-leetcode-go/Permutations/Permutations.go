@@ -1,7 +1,6 @@
 // 生成数据的全排列
 package Permutations
 
-
 func solve(nums []int, start int, res *[][]int) {
 	if start == len(nums)-1 {
 		tmp := make([]int, len(nums))

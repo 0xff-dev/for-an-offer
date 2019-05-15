@@ -4,7 +4,6 @@ import (
 	"for-an-offer/zs-leetcode-go/types"
 )
 
-
 func CloneList(list *types.ComplexListNode) {
 	walk := list
 	for walk != nil {
@@ -28,7 +27,7 @@ func ConnectOthersLink(list *types.ComplexListNode) {
 	}
 }
 
-func Reconnect(list *types.ComplexListNode) *types.ComplexListNode{
+func Reconnect(list *types.ComplexListNode) *types.ComplexListNode {
 	pHead, walk, root := list, list.Next, list.Next
 	pHead.Next = walk.Next
 	pHead = pHead.Next

@@ -6,6 +6,6 @@ import (
 )
 
 func TestJump(t *testing.T) {
-	data := []int{2,3,1,1,4}
+	data := []int{2, 3, 1, 1, 4}
 	fmt.Println(jump(data))
 }

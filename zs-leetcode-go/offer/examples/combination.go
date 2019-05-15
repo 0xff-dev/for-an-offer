@@ -1,8 +1,7 @@
 /*
-	 实现排列组合， 全排列算法
+ 实现排列组合， 全排列算法
 */
 package examples
-
 
 import (
 	"fmt"
@@ -11,7 +10,7 @@ import (
 
 func Combination(str string) {
 	stack := make([]byte, 0)
-	for length := 1; length <= len(str); length ++ {
+	for length := 1; length <= len(str); length++ {
 		combination(str, 0, length, stack)
 	}
 }
@@ -44,7 +43,7 @@ func search(strs []string, index, length int) {
 		fmt.Println(strs)
 		return
 	}
-	for i := index; i <length; i++ {
+	for i := index; i < length; i++ {
 		strs[i], strs[index] = strs[index], strs[i]
 		search(strs, index+1, length)
 		strs[i], strs[index] = strs[index], strs[i]

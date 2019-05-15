@@ -7,7 +7,7 @@ import (
 
 func TestRotateRight(t *testing.T) {
 	list := &types.ListNode{1, &types.ListNode{2, &types.ListNode{3,
-	&types.ListNode{4, &types.ListNode{5, nil}}}}}
+		&types.ListNode{4, &types.ListNode{5, nil}}}}}
 	root := rotateRight(list, 2)
 	root.Display()
 

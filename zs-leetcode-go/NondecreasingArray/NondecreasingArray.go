@@ -1,10 +1,9 @@
 package NondecreasingArray
 
-
 func judge(nums []int) bool {
 	for i := 0; i < len(nums)-1; i++ {
 		if nums[i] > nums[i+1] {
-			return  false
+			return false
 		}
 	}
 	return true
@@ -18,7 +17,7 @@ func checkPossibility(nums []int) bool {
 		if i > 0 {
 			tmp[i] = tmp[i-1]
 		} else {
-			tmp[i] = -(1<<10)
+			tmp[i] = -(1 << 10)
 		}
 		if judge(tmp) {
 			return true

@@ -56,14 +56,13 @@ func QuickSort(nums []int, left, right int) {
 	}
 }
 
-
 // 归并排序归并部分
 func merge(nums []int, left, right int) {
 	mid := (left + right) / 2
-	i, j := left, mid + 1
+	i, j := left, mid+1
 	index := 0
 	newArray := make([]int, right-left+1)
-	for ;i <= mid && j <= right; index++ {
+	for ; i <= mid && j <= right; index++ {
 		if nums[i] < nums[j] {
 			newArray[index] = nums[i]
 			i++
@@ -72,11 +71,11 @@ func merge(nums []int, left, right int) {
 			j++
 		}
 	}
-	for ; i <= mid; i++{
+	for ; i <= mid; i++ {
 		newArray[index] = nums[i]
 		index++
 	}
-	for ; j <= right; j++{
+	for ; j <= right; j++ {
 		newArray[index] = nums[j]
 		index++
 	}
@@ -113,8 +112,8 @@ func maintain(nums []int, index, heapSize int) {
 
 // 构建堆
 func buidlHeap(nums []int) {
-	length := len(nums)-1
-	for i := length/2; i >= 0; i-- {
+	length := len(nums) - 1
+	for i := length / 2; i >= 0; i-- {
 		maintain(nums, i, length)
 	}
 }
@@ -122,7 +121,7 @@ func buidlHeap(nums []int) {
 // 堆排序
 func HeapSort(nums []int) {
 	buidlHeap(nums)
-	length := len(nums)-1
+	length := len(nums) - 1
 	for length > 0 {
 		nums[0], nums[length] = nums[length], nums[0]
 		length--
@@ -133,7 +132,7 @@ func HeapSort(nums []int) {
 // 咕噜咕噜排序
 func BubbleSort(nums []int) {
 	length := len(nums)
-	for i := 0; i <length-1; i++ {
+	for i := 0; i < length-1; i++ {
 		for j := 0; j < length-i-1; j++ {
 			if nums[j] > nums[j+1] {
 				nums[j], nums[j+1] = nums[j+1], nums[j]
@@ -146,7 +145,7 @@ func BubbleSort(nums []int) {
 func SelectSort(nums []int) {
 	for i := 0; i < len(nums)-1; i++ {
 		minIndex := i
-		for j := i+1; j < len(nums); j++ {
+		for j := i + 1; j < len(nums); j++ {
 			if nums[j] < nums[minIndex] {
 				minIndex = j
 			}
@@ -178,7 +177,7 @@ func SleepSort(nums []int) {
 	for _, item := range nums {
 		go func(item int) {
 			defer wg.Done()
-			time.Sleep(time.Duration(item)*time.Second)
+			time.Sleep(time.Duration(item) * time.Second)
 			fmt.Println(item)
 		}(item)
 	}

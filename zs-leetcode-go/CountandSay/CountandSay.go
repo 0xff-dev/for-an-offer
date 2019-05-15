@@ -16,8 +16,8 @@ func countAndSay(n int) string {
 		data := nowString
 		for end != len(data) {
 			for end < len(data) && data[end] == data[start] {
-				end ++
-				cnt ++
+				end++
+				cnt++
 			}
 			buf.WriteString(fmt.Sprintf("%d%c", cnt, data[start]))
 			start = end

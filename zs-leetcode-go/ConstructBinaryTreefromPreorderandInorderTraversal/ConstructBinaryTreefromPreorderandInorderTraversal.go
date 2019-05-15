@@ -16,7 +16,8 @@ func buildTree(preorder []int, inorder []int) *types.TreeNode {
 		return nil
 	}
 	index := 0
-	for ; inorder[index] != preorder[0]; index ++ {}
+	for ; inorder[index] != preorder[0]; index++ {
+	}
 	if index > 0 {
 		root.Left = buildTree(preorder[1:index+1], inorder[:index])
 	}

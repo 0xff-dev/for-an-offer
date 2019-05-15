@@ -6,7 +6,7 @@ import (
 )
 
 func TestCombine(t *testing.T) {
-	tdata := [][]int {
+	tdata := [][]int{
 		{4, 2},
 		{3, 1},
 	}

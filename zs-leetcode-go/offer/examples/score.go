@@ -18,16 +18,16 @@ func BeautifulSolve(n int) {
 		points[flag][i] = 1
 	}
 	for k := 2; k <= n; k++ {
-		for index := 0; index < k; index ++ {
+		for index := 0; index < k; index++ {
 			points[1-flag][index] = 0
 		}
-		for index := k; index <= k*maxPoint; index ++ {
+		for index := k; index <= k*maxPoint; index++ {
 			points[1-flag][index] = 0
 			for j := 1; j <= index && j <= maxPoint; j++ {
 				points[1-flag][index] += points[flag][index-j]
 			}
 		}
-		flag = 1- flag
+		flag = 1 - flag
 	}
 	for i := n; i <= n*maxPoint; i++ {
 		fmt.Printf("point:= %d; get:= %d\n", i, points[flag][i])

@@ -7,7 +7,7 @@ import (
 )
 
 func Producer(id int, item chan int) {
-	for i:=0; i<10; i++ {
+	for i := 0; i < 10; i++ {
 		item <- i
 		fmt.Printf("Producer %d produces data: %d\n", id, i)
 		time.Sleep(1 * time.Second)
@@ -15,7 +15,7 @@ func Producer(id int, item chan int) {
 }
 
 func Consumer(id int, item chan int) {
-	for i:=0; i<20; i++ {
+	for i := 0; i < 20; i++ {
 		cItem := <-item
 		fmt.Printf("Consumer %d get data: %d\n", id, cItem)
 		time.Sleep(1 * time.Second)
