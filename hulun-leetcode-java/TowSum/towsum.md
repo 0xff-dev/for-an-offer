@@ -2,11 +2,12 @@
 > Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 #### 例子
->Given nums = [2, 7, 11, 15], target = 9, 
+>Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 
 ### 第一次提交
+暴力解法 时间复杂度 O(n^2)
 ```java
 class Solution {
         public int[] twoSum(int[] nums, int target) {
@@ -25,6 +26,7 @@ class Solution {
     }
 ```
 ### 第二次提交
+利用哈希表 时间复杂度 O(n)
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
