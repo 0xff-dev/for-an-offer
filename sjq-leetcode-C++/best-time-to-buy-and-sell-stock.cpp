@@ -4,13 +4,10 @@ public:
         if(prices.size() == 0) return 0;
         while(prices.back() ==0) prices.pop_back();
         int i=0;
-        int res=0;
-        while(i<prices.size()-1){
-            int j = i+1;
-            while(j<prices.size()){
-                res = max(res, prices[j]-prices[i]);
-                j++;
-            }
+        int res = 0, temp = prices[0];
+        while(i<prices.size()){
+            res = max(res, prices[i]-temp);
+            temp = min(temp, prices[i]);
             i++;
         }
         return res;
