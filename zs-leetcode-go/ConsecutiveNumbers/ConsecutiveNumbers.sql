@@ -1,0 +1,1 @@
+select * from (select Num as ConsecutiveNums  from Logs l1 where 2=(select count(*) from Logs where Id in (l1.Id+1, l1.Id+2) and Num=l1.Num)) l2 group by l2.ConsecutiveNums
