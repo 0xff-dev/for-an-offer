@@ -21,12 +21,18 @@ func TestDeleteNode(t *testing.T) {
     list.Next = second
     fmt.Println(list,"  ",  second, &second, "   ", th3) // test address
     list.Display()
-    tmpDeleteNode(&second)
+    tmpDeleteNode(second)
     fmt.Println(second.Val)
     list.Display()
 }
 
+func tmpDeleteNode(node *types.ListNode) {
+    next := node.Next
+    *node = *next
+}
+/*
 func tmpDeleteNode(node **types.ListNode) {
     next := (*node).Next
-    *node = next
+    **node = *next
 }
+*/
