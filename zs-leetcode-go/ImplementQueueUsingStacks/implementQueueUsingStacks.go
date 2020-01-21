@@ -4,14 +4,10 @@ type stack struct {
     data []int
 }
 
-func newStack() *stack{
+func newStack() *stack {
     return &stack{
         data: make([]int, 0),
     }
-}
-
-func (self *stack) size() int {
-    return len(self.data)
 }
 
 func (self *stack) push(val int) {
@@ -20,70 +16,77 @@ func (self *stack) push(val int) {
 
 func (self *stack) pop() int {
     length := len(self.data)
-    resData := self.data[length-1]
+    val := self.data[length-1]
     self.data = self.data[:length-1]
-    return resData
+    return val
 }
 
 func (self *stack) top() int {
-    length := len(self.data)
-    return self.data[length-1]
+    return self.data[len(self.data)-1]
 }
 
 func (self *stack) empty() bool {
     return len(self.data) == 0
 }
 
+func (self *stack) size() int {
+    return len(self.data)
+}
+
+
 type MyQueue struct {
-    storeStack *stack
-    aimStack   *stack
+    dataStack *stack
+    aimStack *stack
 }
 
 
 /** Initialize your data structure here. */
 func Constructor() MyQueue {
     return MyQueue{
-        storeStack: newStack(),
+        dataStack: newStack(),
         aimStack: newStack(),
     }
 }
 
 
-/** Push element x to the back of queue. */
-func (this *MyQueue) Push(x int)  {
-    this.storeStack.push(x)
-}
-
-
-func (self *MyQueue) aimQueue(isPop bool) int{
-    if !self.aimStack.empty() {
+func (this *MyQueue) aimFunc(isPop bool) int {
+    if !this.aimStack.empty() {
         if isPop {
-            return self.aimStack.pop()
+            return this.aimStack.pop()
         }
-        return self.aimStack.top()
+        return this.aimStack.top()
     }
-    for self.storeStack.size() > 1 {
-        self.aimStack.push(self.storeStack.pop())
+    for this.dataStack.size() > 1 {
+        this.aimStack.push(this.dataStack.pop())
     }
-    topData := self.storeStack.pop()
+    topData := this.dataStack.pop()
     if !isPop {
-        self.aimStack.push(topData)
+        this.aimStack.push(topData)
     }
     return topData
 }
 
+/** Push element x to the back of queue. */
+func (this *MyQueue) Push(x int)  {
+   this.dataStack.push(x) 
+}
+
+
 /** Removes the element from in front of queue and returns that element. */
 func (this *MyQueue) Pop() int {
-    return this.aimQueue(true)
+    return this.aimFunc(true)
 }
+
 
 /** Get the front element. */
 func (this *MyQueue) Peek() int {
-    return this.aimQueue(false)
+    return this.aimFunc(false)
 }
 
 
 /** Returns whether the queue is empty. */
 func (this *MyQueue) Empty() bool {
-    return this.storeStack.empty() && this.aimStack.empty()
+    return this.dataStack.size() + this.aimStack.size() == 0
 }
+
+
