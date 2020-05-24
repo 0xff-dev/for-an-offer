@@ -55,3 +55,8 @@ func (cln *ComplexListNode) Display() {
 		walk = walk.Next
 	}
 }
+
+type Node struct {
+	Val int
+	Children []*Node
+}
